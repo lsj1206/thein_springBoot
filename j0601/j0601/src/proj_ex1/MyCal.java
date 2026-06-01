@@ -1,10 +1,13 @@
 package proj_ex1;
 
 public class MyCal {
-	int num1;
-	int num2;
-	char operator;
-	int result;
+	@SuppressWarnings("unused")
+	private int num1;
+	@SuppressWarnings("unused")
+	private int num2;
+	@SuppressWarnings("unused")
+	private char operator;
+	private int result;
 	
 	public MyCal(int n, char f, int m) {
 		num1 = n;
@@ -31,5 +34,8 @@ public class MyCal {
 				System.out.println("처리가능한 입력값이 아닙니다.");
 				break;
 		}
+	}
+	public int getResult() {
+		return result;
 	}
 }

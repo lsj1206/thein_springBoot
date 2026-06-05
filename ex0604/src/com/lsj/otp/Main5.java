@@ -3,9 +3,15 @@ package com.lsj.otp;
 import java.util.Random;
 import java.util.Scanner;
 
-public class OtpMain {
+class Main5 {
 
 	public static void main(String[] args) {
+		
+		Payment p1 = new CardPayment();
+		Payment p2 = new TossPay();
+
+		p1.pay(10000);
+		p2.pay(20000);
 		
 		Random random = new Random();
 		Scanner sc = new Scanner(System.in);

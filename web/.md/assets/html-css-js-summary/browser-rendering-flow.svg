@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Browser rendering flow</title>
+  <desc id="desc">HTML creates DOM, CSS creates CSSOM, JavaScript can change DOM and CSSOM, and the browser recalculates layout and paint.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb" />
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 10; }
+      .main { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 10; }
+      .warn { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; rx: 10; }
+      .text { font-family: Arial, sans-serif; font-size: 18px; fill: #0f172a; font-weight: 700; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #475569; }
+      .arrow { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #ea580c; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="980" height="520" />
+  <rect class="box" x="48" y="70" width="180" height="90" />
+  <text class="text" x="138" y="108" text-anchor="middle">HTML</text>
+  <text class="small" x="138" y="132" text-anchor="middle">information structure</text>
+  <rect class="box" x="48" y="250" width="180" height="90" />
+  <text class="text" x="138" y="288" text-anchor="middle">CSS</text>
+  <text class="small" x="138" y="312" text-anchor="middle">style rules</text>
+  <rect class="main" x="325" y="70" width="180" height="90" />
+  <text class="text" x="415" y="108" text-anchor="middle">DOM</text>
+  <text class="small" x="415" y="132" text-anchor="middle">nodes and meaning</text>
+  <rect class="main" x="325" y="250" width="180" height="90" />
+  <text class="text" x="415" y="288" text-anchor="middle">CSSOM</text>
+  <text class="small" x="415" y="312" text-anchor="middle">computed style base</text>
+  <rect class="main" x="610" y="160" width="180" height="90" />
+  <text class="text" x="700" y="198" text-anchor="middle">Render Tree</text>
+  <text class="small" x="700" y="222" text-anchor="middle">visible nodes + style</text>
+  <rect class="box" x="610" y="350" width="180" height="90" />
+  <text class="text" x="700" y="388" text-anchor="middle">Layout / Paint</text>
+  <text class="small" x="700" y="412" text-anchor="middle">box, position, pixels</text>
+  <rect class="warn" x="325" y="400" width="180" height="70" />
+  <text class="text" x="415" y="430" text-anchor="middle">JavaScript</text>
+  <text class="small" x="415" y="452" text-anchor="middle">changes DOM / CSSOM</text>
+  <path class="arrow" d="M 228 115 L 325 115" />
+  <path class="arrow" d="M 228 295 L 325 295" />
+  <path class="arrow" d="M 505 115 C 565 115 565 205 610 205" />
+  <path class="arrow" d="M 505 295 C 565 295 565 205 610 205" />
+  <path class="arrow" d="M 700 250 L 700 350" />
+  <path class="dash" d="M 415 400 L 415 340" />
+  <path class="dash" d="M 505 435 C 825 435 855 205 790 205" />
+  <text class="small" x="790" y="478" text-anchor="middle">JS mutation can trigger style, layout, and paint again.</text>
+</svg>

@@ -1,0 +1,170 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js01</title>
+    <style>
+      #result.red {
+        color: red;
+      }
+    </style>
+    <script>
+      // 1. 원시 표현식
+      // 2. 조합 수단
+      // 3 * 5 + 10 / 2
+      // window.alert(3 * 5 + 10 / 2);
+      // console.log(3 * 5 + 10 / 2);
+      // (3 * 5) + (10 / 2);
+      // '을수' + '있다';
+
+      // 3. 추상화 수단
+      // var size = 3;
+      // size * 2 * (size - 5 + 4) + 27 / 6 * 10
+
+      // const pi = 3.14;
+      // var radius = 10;
+      // var 원주 = pi * radius * radius;
+      // console.log(this);
+
+      // if (3 > 1) {
+      //   let a = 10;
+      //   a = a + 10
+      //   console.log(a);
+      //   console.log('참2');
+      //   console.log('참3');
+      //   console.log('참4');
+      // }
+
+      // const, let, var
+
+      // 1. 식 (expression)
+      // 5 + 5
+
+      // 2. 문(statement)
+      // let a = 1 + 1
+      // if () {}
+      // for () {}
+
+      // 3. 블록(block)
+      // {
+      //     let a = 1 + 1;
+      //     console.log(a);
+      // }
+
+      // 4. 함수(function)
+      // function sum() {
+      //   function son() {
+
+      //   }
+      //   const a = 10;
+      //   const b = 20;
+      //   {
+      //     let a = 100;
+      //     console.log(a);
+      //   }
+      //   for () {}
+      //   if () {}
+      //   return a + b;
+
+      // }
+
+      // 5. 프로그램(program)
+
+      // 프로그램의 실행 단계
+      // 1. 평가
+      //
+      // 2. 실행
+
+      // 함선 선언
+      // function sum(num1) {
+      //   const a = 10 + num1;
+      //   const b = 20 + num1;
+      //   // console.log(a + b);
+      //   // return a + b;
+      // }
+
+      // // 함수 호출
+      //   var a = sum(1);
+
+      var a = { open: 10 };
+      var b = a;
+      console.log(a === b);
+
+      var aa = [1, 2, 3];
+      var bb = [1, 2, 3];
+      console.log(aa === bb);
+    </script>
+  </head>
+  <body>
+    <h1>js01</h1>
+    <input type="text" id="name" placeholder="이름을 입력하세요" />
+    <button id="btn">버튼</button>
+    <p id="result">인사말이 나옵니다.</p>
+  </body>
+  <script>
+    // const buttonEl = document.querySelector("#btn");
+    // console.log(buttonEl);
+    // // 버튼을 누르면 알아채는 감지 장치
+    // buttonEl.addEventListener("click", clickWork);
+
+    // // 버튼을 눌릴때 실행할 일들
+    // function clickWork() {
+    //   // inputEl예 접근
+    //   const inputEl = document.querySelector("#name");
+    //   console.dir(inputEl);
+    //   // inputEl의 value값을 읽어서 console에 출력
+    //   console.log(inputEl.value);
+    //   // p#result에 접근
+    //   const resultEl = document.querySelector("#result");
+    //   console.dir(resultEl);
+    //   // p#result의 textContent를 inputEl의 value로 바꿔주기
+    //   resultEl.textContent = `${inputEl.value}님 반갑습니다.`;
+    //   // p#result의 red라는 클래스를 추가
+    //   resultEl.className = "red";
+    // }
+
+    // // 함수를 전달해서 자동으로 실행되도록 하기(콜백함수)
+    // function Hello() {
+    //   return "Hello";
+    // }
+    // function hw(text) {
+    //   return text + ", world!!!";
+    // }
+    // console.log(hw(Hello()));
+
+    // function c() {
+    //   return function () {
+    //     console.log("Hello");
+    //   };
+    // }
+    // const a = c();
+    // a();
+    // c()();
+
+    // function b() {
+    //   return function () {
+    //     return 10 + 10;
+    //   };
+    // }
+    // const n = b()();
+    // console.log(n);
+
+    // // IIFE (Immediately Invoked Function Expression)
+    //   const result = (function (arg) {
+    //     return arg + 10 + 10;
+    //   })(5);
+    //   console.log(result);
+
+    // // FD (Function Declaration) - hoisting 발생
+    // function sum(num1, num2) {
+    //   return num1 + num2;
+    // }
+    // var result = sum(1, 2);
+
+    // // FE (Function Expression) - hoisting 발생하지 않음
+    // const sum2 = function (num1, num2) {
+    //   return num1 + num2;
+    // };
+    // var result2 = sum2(1, 2);
+  </script>
+</html>

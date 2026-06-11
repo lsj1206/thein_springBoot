@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js01</title>
+    <script>
+      // let arr = ['a', 'b', 'c', 'd', 'e'];
+      // let arr2 = ['d', 'e', 'f'];
+      // console.log(arr);
+      // let result1 = arr.concat('b'); // 배열을 복사해서 새로운 배열을 반환
+      // let result2 = arr.indexOf('p'); // 배열에서 'b'의 인덱스를 반환, 없으면 -1을 반환
+      // let result2 = arr.includes('b'); // 배열에 'p'가 있는지 확인하고 true 또는 false를 반환
+      // let result2 = arr.join('/'); // 배열의 모든 요소를 문자열로 결합하여 반환
+      // let result2 = arr.reverse(); // 배열의 요소 순서를 반대로 뒤집어서 반환
+      // let result2 = arr.lastIndexOf('b'); // 배열에서 'b'의 마지막 인덱스를 반환, 없으면 -1을 반환
+      // let result2 = arr.slice(1, 4); // 배열의 일부분을 추출하여 새로운 배열로 반환, 시작 인덱스는 포함, 끝 인덱스는 포함하지 않음
+      // let result2 = arr.slice(); // 배열의 모든 요소를 복사하여 새로운 배열로 반환
+      // let result2 = arr.splice(1, 2); // 배열에서 인덱스 1부터 2개의 요소를 제거하고 제거된 요소를 새로운 배열로 반환
+      // let result2 = arr.push('f'); // 배열의 끝에 'f'를 추가하고 새로운 길이를 반환
+      // let result2 = arr.pop(); // 배열의 마지막 요소를 제거하고 제거된 요소를 반환
+      // let result2 = arr.unshift('a'); // 배열의 시작에 요소를 추가하고 새로운 길이를 반환
+      // let result2 = arr.shift(); // 배열의 첫 번째 요소를 제거하고 제거된 요소를 반환
+      // console.log(result2);
+      // console.log(arr);
+
+      // const arr = [88, {이름: '홍길동'},['a', 'b', 'c'], function() { console.log('안녕하세요'); }];
+
+      // // 배열안에 함수를 실행해 보세요
+      // arr[3]();
+
+      // // 배열안에 '홍길동'을 출력해 보세요
+      // console.log(arr[1].이름);
+
+      // // 배열안에 'c'를 출력해 보세요
+      // console.log(arr[2][2]);
+
+      // let str = '  HTTPS://via.placeholder.com/150/92c952 ';
+      // // https를 http로 교체한 다음, 공백을 없애고, 소문자로 만들기
+
+      // '  HTTPS://via.placeholder.com/150/92c952 '.trim().toLowerCase().replace('https', 'http');
+
+      // 아래 함수의 result 변수에 결과를 저장할 수 있는 실행문을 적어보세요.
+      // function a() {
+      //   const sum = 1 + 1;
+      //   return function b(num) {
+      //     return sum + num
+      //   }
+      // }
+      // const result = a()(2); // 5
+    </script>
+    <style>
+      .active {
+        border: 4px solid blue;
+        border-radius: 10px;
+        background-color: lightblue;
+      }
+      .title {
+        color: red;
+      }
+      .title.active {
+        background-color: lime;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="service">
+      <h2 class="title">차량 서비스</h2>
+      <ul title="리스트">
+        <li><a href="http://eulsoo.com">을수</a></li>
+        <li><a href="http://naver.com">네이버</a></li>
+        <li><a href="http://daum.com">다음</a></li>
+        <li><a href="http://kakao.com">카카오</a></li>
+        <li><a href="http://google.com">구글</a></li>
+      </ul>
+    </div>
+    <button class="btn change">확인</button>
+    <button class="btn add">추가</button>
+    <button class="btn modify">수정</button>
+    <a href="" class="test">이벤트</a>
+  </body>
+  <script>
+    // 재료 준비
+    const result = document.querySelectorAll("#service > ul > li");
+    const aEls = document.querySelectorAll("#service > ul > li > a");
+    const ulEl = document.querySelector("#service > ul");
+    const h2El = document.querySelector("#service > h2");
+    const changeBtn = document.querySelector(".change");
+    const addBtn = document.querySelector(".add");
+    const modifyBtn = document.querySelector(".modify");
+    const testAEl = document.querySelector(".test");
+    const blankArr = [];
+
+    // 감지 장치
+    changeBtn.addEventListener("click", changeService);
+    addBtn.addEventListener("click", addService);
+    modifyBtn.addEventListener("click", modifyTitle);
+    testAEl.addEventListener("click", testFn);
+
+    function testFn(e) {
+      e.preventDefault();
+      console.log(e.target);
+      e.target.style.backgroundColor = "lightcoral";
+      ulEl.style.backgroundColor = "lightgreen";
+    }
+
+    // 할일 함수
+    function modifyTitle() {
+      // h2El.className = 'title active';
+      // h2El.className += ' active';
+      // if (h2El.className === "title") {
+      //   h2El.className = "title active";
+      // } else {
+      //   h2El.className = "title";
+      // }
+
+      //modern
+      if (h2El.classList.contains("active")) {
+        h2El.classList.remove("active");
+      } else {
+        h2El.classList.add("active");
+      }
+    }
+    function addService() {
+      // 1. insertAdjacentHTML 방식
+      ulEl.insertAdjacentHTML("beforeend", '<li><a href="http://facebook.com">메타</a></li>');
+
+      // 2. innerHTML 방식
+      // const liEl = document.createElement('li');
+      // liEl.innerHTML = '<a href="http://facebook.com">메타</a>';
+      // ulEl.appendChild(liEl);
+
+      // 3. creatElement 방식
+      // const liEl = document.createElement('li');
+      // const aEl = document.createElement('a');
+      // aEl.setAttribute('href', 'http://facebook.com');
+      // aEl.textContent = '메타';
+      // liEl.appendChild(aEl);
+      // ulEl.appendChild(liEl);
+    }
+    function changeService() {
+      const titleValue = ulEl.getAttribute("title");
+      h2El.setAttribute("title", "이건 내용입니다.");
+      console.log(titleValue);
+
+      for (let i = 0; i < result.length; i++) {
+        blankArr.push(aEls[i].getAttribute("href"));
+        result[i].className = "active";
+        result[i].textContent += " (서비스)";
+      }
+    }
+  </script>
+</html>

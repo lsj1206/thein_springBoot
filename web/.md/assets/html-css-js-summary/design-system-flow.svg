@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">Design system publishing flow</title>
+  <desc id="desc">Figma structure becomes design tokens, components, CSS variables, and reusable classes.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed" />
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 10; }
+      .token { fill: #f5f3ff; stroke: #7c3aed; stroke-width: 2; rx: 10; }
+      .text { font-family: Arial, sans-serif; font-size: 17px; fill: #0f172a; font-weight: 700; }
+      .small { font-family: Arial, sans-serif; font-size: 13px; fill: #475569; }
+      .line { stroke: #7c3aed; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="980" height="500" />
+  <rect class="box" x="55" y="85" width="170" height="90" />
+  <text class="text" x="140" y="120" text-anchor="middle">Figma Structure</text>
+  <text class="small" x="140" y="145" text-anchor="middle">layer, group, auto layout</text>
+  <rect class="token" x="285" y="85" width="170" height="90" />
+  <text class="text" x="370" y="120" text-anchor="middle">Tokens</text>
+  <text class="small" x="370" y="145" text-anchor="middle">color, type, spacing</text>
+  <rect class="box" x="515" y="85" width="170" height="90" />
+  <text class="text" x="600" y="120" text-anchor="middle">Components</text>
+  <text class="small" x="600" y="145" text-anchor="middle">responsibility boundary</text>
+  <rect class="token" x="745" y="85" width="170" height="90" />
+  <text class="text" x="830" y="120" text-anchor="middle">CSS Classes</text>
+  <text class="small" x="830" y="145" text-anchor="middle">state and reuse</text>
+  <rect class="box" x="170" y="290" width="210" height="90" />
+  <text class="text" x="275" y="325" text-anchor="middle">CSS Variables</text>
+  <text class="small" x="275" y="350" text-anchor="middle">theme and repeated values</text>
+  <rect class="box" x="600" y="290" width="210" height="90" />
+  <text class="text" x="705" y="325" text-anchor="middle">Page Assembly</text>
+  <text class="small" x="705" y="350" text-anchor="middle">layout + local exceptions</text>
+  <path class="line" d="M 225 130 L 285 130" />
+  <path class="line" d="M 455 130 L 515 130" />
+  <path class="line" d="M 685 130 L 745 130" />
+  <path class="line" d="M 370 175 L 300 290" />
+  <path class="line" d="M 600 175 L 690 290" />
+  <path class="line" d="M 380 335 L 600 335" />
+  <text class="small" x="490" y="435" text-anchor="middle">Do not create common classes only because values repeat. Reuse needs shared meaning.</text>
+</svg>

@@ -1,0 +1,288 @@
+@charset 'utf-8';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
+
+:root {
+  --primary: #000000;
+  --secondary_red: #eb5757;
+  --secondary_blue: #2f80ed;
+  --secondary_green: #27ae60;
+  --gray_10: #f2f2f2;
+  --gray_50: #828282;
+  --white: #ffffff;
+  --gray_70: #4f4f4f;
+  --gray_80: #333333;
+  --round_s: 8px;
+  --round_m: 13px;
+}
+/* reset */
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--gray_80);
+}
+body {
+  background-color: #252525;
+  margin: 0;
+  padding: 10px;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+/* prettier-ignore */
+h1, h2, h3, h4, h5, h6 { font-size: 1rem; }
+/* prettier-ignore */
+h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ul, ol, li, div, form, fieldset, blockquote,
+address, table, thead, tbody, tfoot, tr, td, caption { margin: 0; padding: 0; }
+
+/* Typography */
+.component_list {
+  display: none;
+  width: 280px;
+}
+
+.card_title {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.sub_title {
+  color: var(--gray_70);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btn {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.btn.large {
+  border-radius: 13px;
+  padding: 10px 25px;
+  font-size: 14px;
+}
+
+.btn.small {
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+.btn.blue {
+  background-color: var(--secondary_blue);
+}
+
+.btn.red {
+  background-color: var(--secondary_red);
+}
+
+.btn.green {
+  background-color: var(--secondary_green);
+}
+
+/* component */
+.card {
+  overflow: hidden;
+  background-color: var(--white);
+  border-radius: var(--round_s);
+}
+
+.index_feedback {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  height: 59px;
+  gap: 3px;
+}
+
+.index_feedback > .index {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.index_feedback > .index img {
+  width: 27px;
+  height: 27px;
+}
+
+.index_feedback > .index .name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.index_feedback > .feedback {
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
+  gap: 13px;
+  font-weight: 500;
+}
+
+.index_feedback > .feedback .feedback_item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.index_feedback > .feedback .feedback_item img {
+  width: 20px;
+  height: 20px;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+}
+
+.card_header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 9px 10px;
+  height: 87px;
+  gap: 2px;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 10px;
+  gap: 5px;
+}
+
+.index_more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 59px;
+}
+
+.index_more .index {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.index_more > .index > img {
+  width: 39px;
+  height: 39px;
+}
+
+.index_more .index .text h5 {
+  color: #ff0000;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.index_more .index .text p {
+  color: var(--gray_50);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.index_more .index img {
+  width: 39px;
+  height: 39px;
+}
+
+.share {
+  /* display: flex;
+  flex-direction: column;
+  height: 92px;
+  gap: 4px; */
+  padding: 0 4px;
+}
+
+.share .feedback {
+  border-bottom: 1px solid var(--gray_10);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 21px;
+  height: 44px;
+}
+
+.share .comment {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 21px;
+  height: 44px;
+  gap: 13px;
+}
+
+.share .comment input {
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  padding: 9px 16px;
+  font-size: 10px;
+}
+
+.share > .comment input:focus {
+  outline: none;
+}
+
+.share > .comment input::placeholder {
+  color: var(--gray_10);
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 111px;
+}
+
+.movie .play {
+  background-color: var(--secondary_green);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -30px;
+  width: 59px;
+  height: 59px;
+}
+
+.movie .play img {
+  width: 24px;
+  height: 24px;
+  padding-left: 4px;
+}
+
+.movie .text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 45px;
+  gap: 6px;
+}
+
+.movie .text h6 {
+  font-size: 14px;
+}

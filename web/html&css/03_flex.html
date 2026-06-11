@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    /* reset */
+    html {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    body {
+      margin: 0px;
+      padding: 10px;
+      background-color: #f5f5f5;
+    }
+    /* prettier-ignore */
+    h1, h2, h3, h4, h5, h6 {
+        font-size:1rem;
+      }
+    /* prettier-ignore */
+    h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, address, table, thead, tbody, tfoot, tr, td, caption {
+        margin:0;
+        padding:0;
+      }
+    li {
+      list-style: none;
+    }
+    div {
+      box-sizing: border-box;
+    }
+    .img_text_box {
+      display: flex;
+      justify-content: flex-start; /* 같은 방향으로 어떻게? */
+      align-items: stretch; /*  반대 방향으로 어떻게?  */
+      padding: 13px 17px;
+      width: 592px;
+      gap: 20px;
+      background-color: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 5px;
+      font-family: "Inter", sans-serif;
+      line-height: 1.2;
+    }
+    .img_text_box > .photo {
+      width: 163px;
+      height: 143px;
+      background-color: #d9d9d9;
+    }
+    .text_box > h4 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .text_box > p {
+      margin-top: 11px;
+      width: 372px;
+      height: 90px;
+      font-size: 12px;
+    }
+    .tab_box {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 50px;
+      padding-left: 17px;
+      border-bottom: 1px solid black;
+    }
+    .tab {
+      display: block;
+      padding: 8px 16px;
+      background-color: #ffffff;
+      border: 1px solid #dadada;
+      border-bottom: none;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      color: black;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+    .tab:hover {
+      background-color: #9c9c9c;
+      color: white;
+      border: 1px solid none;
+      /* transform-origin: bottom center;
+      transform: scale(1.05);
+      transition: transform 0.3s ease; */
+    }
+    .music {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      padding: 25px;
+      width: 1092px;
+      height: 540px;
+      background-color: white;
+      font-family: "Noto Sans KR" sans-serif;
+    }
+    .music > .music_main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .music > .music_main > .main_img {
+      width: 567px;
+      height: 353px;
+    }
+    .music > .music_list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .music > .music_list > .list_img {
+      width: 150px;
+      height: 150px;
+    }
+    .music > .music_list > li > .mini_card {
+      display: flex;
+      width: 437px;
+      height: 150px;
+      gap: 22px;
+    }
+    .text_box > a {
+      text-decoration: none;
+    }
+    .text_box > a > strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #cc4c6e;
+    }
+    .text_box > a > h5 {
+      margin-bottom: 12px;
+      font-size: 24px;
+      font-weight: 700;
+      color: black;
+    }
+    .text_box > a > span {
+      font-size: 20px;
+      font-style: normal;
+      color: #4d4d4d;
+    }
+    .mini > a > strong {
+      margin-top: 11px;
+      margin-bottom: 7px;
+    }
+
+    .mini > a > h5 {
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+
+    .mini > a > span {
+      color: #464646;
+    }
+  </style>
+  <body>
+    <ul class="tab_box">
+      <li><a class="tab" href="">교실</a></li>
+      <li><a class="tab" href="">운동장</a></li>
+      <li><a class="tab" href="">놀이터</a></li>
+      <li><a class="tab" href="">학교강당</a></li>
+    </ul>
+    <div class="img_text_box">
+      <img class="photo" src="./images/test.jpg" />
+      <div class="text_box">
+        <h4>Lorem ipsum dolor sit amet</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci adipiscing feugiat orci nisi, sapien ullamcorper
+          molestie. Non pulvinar in facilisis tincidunt cras amet. Vulputate scelerisque scelerisque imperdiet sem
+          dignissim congue vulputate. Pulvinar est eget maecenas aliquam mattis cras diam volutpat pellentesque.
+          Elementum diam, adipiscing blandit feugiat
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="music">
+        <div class="music_main">
+          <img class="main_img" src="./images/music_main.jpg" />
+          <div class="text_box">
+            <a href="">
+              <strong>티저 예고편</strong>
+              <h5>[개미가 타고 있어요] 주식 떡락한 당신을 위한 드라마</h5>
+              <span>티빙(TVING)</span>
+            </a>
+          </div>
+        </div>
+        <ul class="music_list">
+          <li>
+            <div class="mini_card">
+              <img class="list_img" src="./images/music_list_1.jpg" />
+              <div class="text_box mini">
+                <a href="">
+                  <strong>신곡 MV</strong>
+                  <h5>SUPER JUNIOR 슈퍼주니어 Mango MV</h5>
+                  <span>SMTOWN</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="mini_card">
+              <img class="list_img" src="./images/music_list_2.jpg" />
+              <div class="text_box mini">
+                <a href="">
+                  <strong>신곡 MV</strong>
+                  <h5>SUPER JUNIOR 슈퍼주니어 Mango MV</h5>
+                  <span>SMTOWN</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="mini_card">
+              <img class="list_img" src="./images/music_list_3.jpg" />
+              <div class="text_box mini">
+                <a href="">
+                  <strong>신곡 MV</strong>
+                  <h5>SUPER JUNIOR 슈퍼주니어 Mango MV</h5>
+                  <span>SMTOWN</span>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

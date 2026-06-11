@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>카테고리</title>
+    <meta name="robots" content="all" />
+    <style>
+      .category li li {
+        border: 1px solid tan;
+        transition: all 0.3s ease;
+      }
+
+      .category li li:hover {
+        border: 1px solid tan;
+        transform: translate(10px, 0);
+      }
+
+      .category > :first-child {
+        color: red;
+      }
+
+      input[type="text"] {
+        outline: none;
+        border: 1px solid lightgray;
+        padding: 8px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+      }
+
+      input[type="text"]:focus {
+        outline: 1px solid lightblue;
+        border: 1px solid lightblue;
+      }
+      a:link {
+        color: darkcyan;
+      }
+      a:visited {
+        color: grey;
+      }
+      a:active {
+        border: 1px solid red;
+      }
+      a:hover {
+        background-color: honeydew;
+      }
+
+      body {
+        color: palevioletred;
+      }
+      .text {
+        color: powderblue;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="카테고리를 입력하세요" />
+    <a href="qeqe.html">확인</a>
+
+    <div class="text">
+      글자들
+      <div class="son">손주들</div>
+    </div>
+
+    <ul class="category">
+      <li>오늘의 집</li>
+      <li>
+        오늘의 심리학
+        <ul>
+          <li>부모의 심리학</li>
+          <li>경제의 심리학</li>
+          <li>그림의 심리학</li>
+          <li>연애의 심리학</li>
+        </ul>
+      </li>
+      <li>오늘의 경제</li>
+      <li>오늘의 학교</li>
+      <li>오늘의 선생님</li>
+    </ul>
+  </body>
+</html>

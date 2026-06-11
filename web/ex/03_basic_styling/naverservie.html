@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>네이버서비스</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+      }
+      .service {
+        border: 4px solid black;
+        border-radius: 12px;
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .service > h2 {
+        margin-bottom: 20px;
+      }
+
+      .service > :last-child {
+        margin-bottom: 0;
+      }
+
+      .service_item::before {
+        content: "🔎";
+      }
+
+      .service_item::after {
+        content: "👍";
+      }
+
+      .service > .service_item {
+        background-color: lightgreen;
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+      }
+
+      .service_item > h3 {
+        margin-bottom: 10px;
+      }
+
+      .service > .best {
+        background-color: lightpink;
+      }
+
+      .service > .hot {
+        border: 2px solid dimgray;
+      }
+
+      .btn {
+        background-color: lightgray;
+        border: 1px solid lightslategray;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 4px;
+      }
+
+      .btn.small {
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+
+      .btn.large {
+        padding: 12px 24px;
+        font-size: 18px;
+        border-radius: 12px;
+      }
+
+      .btn.red {
+        background-color: lightcoral;
+        border-color: lightcoral;
+      }
+
+      .btn.green {
+        background-color: lightgreen;
+        border-color: lightgreen;
+      }
+
+      .btn.blue {
+        background-color: lightblue;
+        border-color: lightblue;
+      }
+
+      .btn:hover {
+        color: azure;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="service">
+      <h2>네이버서비스</h2>
+      <div class="service_item best hot">
+        <h3>네이버 캐스트</h3>
+        <p>
+          우리가 일상생활에서 환경을 위해 할 수 있는 가장 손쉽고 간편한 방법은 무엇이 있을까? 아마도 전력을 아껴 쓰는
+          일일 것 이다. <span>어쩌면 우리는 멀지 않은 미 래에 어둠 컴컴한 도시 속에서 살아야 할지 도 모른다.</span>
+        </p>
+      </div>
+      <div class="service_item hot">
+        <h3>오픈 캐스트</h3>
+        <p>
+          스티커의 디자인이 참 독특하다. 전력 이 생산되는 과정을 보여주는 스티커, 전력 소비로 인한 환경 오염을
+          노골적으로 보여 주는 스티커 등 다양하다.
+        </p>
+      </div>
+
+      <div class="service_item">
+        <h3>오픈 캐스트</h3>
+        <p>
+          스티커의 디자인이 참 독특하다. 전력 이 생산되는 과정을 보여주는 스티커, 전력 소비로 인한 환경 오염을
+          노골적으로 보여 주는 스티커 등 다양하다.
+        </p>
+      </div>
+    </div>
+
+    <hr />
+    <br />
+
+    <button class="btn small red">버튼1</button>
+    <button class="btn small green">버튼2</button>
+    <button class="btn small blue">버튼3</button>
+    <button class="btn large red">버튼4</button>
+    <button class="btn large green">버튼5</button>
+    <button class="btn large blue">버튼6</button>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js02</title>
+    <script>
+      // let a = 5;
+      // let result = a > 8 || a > 10;
+      // console.log(result);
+
+      // function ascii(num) {
+      //   if (0 <= num && num <= 31) {
+      //     console.log("ASCII 제어문자입니다.");
+      //     return num;
+      //   } else if (31 < num && num < 256) {
+      //     console.log("ASCII 문자: '" + String.fromCharCode(num) + "' 입니다.");
+      //     return String.fromCharCode(num);
+      //   } else {
+      //     console.log("ASCII 범위를 벗어났습니다.");
+      //     return num;
+      //   }
+      // }
+
+      // const result1 = ascii(-31);
+      // const result2 = ascii(27);
+      // const result3 = ascii(66);
+      // const result4 = ascii(255);
+      // const result5 = ascii(270);
+      // console.log(result1, result2, result3, result4, result5);
+
+      // function func(num) {
+      //   return num > 0 ? num : 0;
+      // }
+      // console.log(func(5));
+
+      // if (num > 0) return num;
+      // else if (num === 0) return 0;
+      // else return -num;
+
+      // function func2(num) {
+      //   return num > 0 ? num : num === 0 ? 0 : -num;
+      // }
+      // console.log(func2(-5));
+
+      // for (let i = 1; i < 10; i++) {
+      //   for (let j = 1; j < 10; j++) {
+      //     console.log(`${i} x ${j} = ${i * j}`);
+      //   }
+      // }
+
+      // let 객체 = {
+      //   name: `홍길동`,
+      //   age: 30,
+      //   job: `도적`,
+      // };
+
+      // 객체.name = `김철수`;
+      // 객체.age = 25;
+      // 객체.job = `교사`;
+
+      // console.log(객체);
+
+      // function resetProperty(prop) {
+      //   객체[prop] = undefined;
+      //   // if (prop === `name`) {
+      //   //   객체.name = undefined;
+      //   // }
+      //   // if (prop === `age`) {
+      //   //   객체.age = undefined;
+      //   // }
+      //   // if (prop === `job`) {
+      //   //   객체.job = undefined;
+      //   // }
+      // }
+
+      // const innerValue = 10;
+      // const 문자 = `안녕하세요`;
+      // const 불린 = true;
+      // const 객체 = { name: `홍길동`, age: 30 };
+      // const 배열 = [33, 255, 322, 464, 225];
+      // const 함수 = function () {
+      //   console.log(`is func`);
+      // };
+
+      // console.log(typeof 객체);
+
+      // const 가짜배열 = {
+      //   0: `사과`,
+      //   1: `바나나`,
+      //   2: `딸기`,
+      //   length: 3,
+      // };
+
+      const 학생 = {
+        이름: "홍길동",
+        나이: 30,
+        성별: "남성",
+        취미: ["독서", "운동", "게임"],
+        주소: {
+          시: "서울",
+          구: "강남구",
+          동: "역삼동",
+        },
+        인사하기: function () {
+          console.log(`안녕하세요, 저는 ${학생.이름}입니다.`);
+        },
+      };
+
+      console.log(학생[`취미`][2]);
+      console.log(학생[`주소`][`동`]);
+      학생.인사하기();
+    </script>
+  </head>
+  <body>
+    <h1>js02</h1>
+  </body>
+  <script></script>
+</html>

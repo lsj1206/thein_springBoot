@@ -1,12 +1,13 @@
+# Local tool bundle
+**/tools/
+**/_temp/
+
 # Eclipse workspace metadata
 **/.metadata/
 
 # Java build output
 **/bin/
 *.class
-
-# Local tool bundle
-tools/
 
 # Logs
 *.log

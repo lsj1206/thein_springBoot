@@ -1,18 +1,19 @@
+# Custom
+**/tools/
+**/_temp/
+
 #Tomcat
 **/Servers/
 
-# DBeaver workspace - track SQL scripts only
+# DBeaver
+**/drivers/
 /postgredb/.metadata/
 /postgredb/General/.dbeaver/
 /postgredb/General/.settings/
 /postgredb/General/.project
 /postgredb/dvdrental.zip
 
-# Local tool bundle
-**/tools/
-**/_temp/
-
-# Eclipse workspace metadata
+# Eclipse
 **/.metadata/
 
 # Java build output

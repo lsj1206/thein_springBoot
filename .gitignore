@@ -1,3 +1,6 @@
+#Tomcat
+**/Servers/
+
 # DBeaver workspace - track SQL scripts only
 /postgredb/.metadata/
 /postgredb/General/.dbeaver/

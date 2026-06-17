@@ -3,8 +3,10 @@
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.TreeMap" %>
+<%@ page import="java.util.Map" %>
 <%! // 하위 폴더까지 재귀적으로 탐색하며 jsp, html 파일을 수집하는 메서드
-    public void findWebPages(File dir, String rootPath, List<String> fileList) {
+    public void findWebPages(File dir, String rootPath, Map<String, List<String[]>> folderMap) {
         File[] files = dir.listFiles();
         if (files == null) return;
 
@@ -14,19 +16,38 @@
                 if (!file.getName().equalsIgnoreCase("WEB-INF") &&
                     !file.getName().equalsIgnoreCase("META-INF") &&
                     !file.getName().startsWith(".")) {
-                    findWebPages(file, rootPath, fileList);
+                    findWebPages(file, rootPath, folderMap);
                 }
             } else {
-                String fileName = file.getName().toLowerCase();
+                String fileName = file.getName();
+                // _가 포함된 파일 제외
+                if (fileName.contains("_")) {
+                    continue;
+                }
+
+                String lowerName = fileName.toLowerCase();
                 // JSP 및 HTML 파일만 추출
-                if (fileName.endsWith(".jsp") || fileName.endsWith(".html") || fileName.endsWith(".htm")) {
+                if (lowerName.endsWith(".jsp") || lowerName.endsWith(".html") || lowerName.endsWith(".htm")) {
                     // 시스템 절대경로를 웹 상대경로로 변환
                     String relativePath = file.getAbsolutePath().substring(rootPath.length());
                     relativePath = relativePath.replace(File.separatorChar, '/');
 
                     // index.jsp 본인은 목록에서 제외
                     if (!relativePath.equals("index.jsp") && !relativePath.equals("/index.jsp")) {
-                        fileList.add(relativePath);
+                        // 폴더명 추출
+                        String cleanPath = relativePath.startsWith("/") ? relativePath.substring(1) : relativePath;
+                        String folderName = "Root";
+                        int slashIndex = cleanPath.indexOf('/');
+                        if (slashIndex != -1) {
+                            folderName = cleanPath.substring(0, slashIndex);
+                        }
+
+                        List<String[]> list = folderMap.get(folderName);
+                        if (list == null) {
+                            list = new ArrayList<String[]>();
+                            folderMap.put(folderName, list);
+                        }
+                        list.add(new String[]{fileName, relativePath});
                     }
                 }
             }
@@ -37,50 +58,87 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>웹페이지 링크 목록</title>
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .card {
+        min-width: 180px;
+    }
+</style>
 </head>
 <body>
-	<%@ page info="Date 클랫를 이용한 날짜 출력하기" %>
-	<p>Today is <%= new java.util.Date() %></p>
-    <p>Today is <span id="live-clock">]</span></p>
+    <header>
+        <h1>JSP Web Programming</h1>
+        <div class="info-bar">
+            <div class="info-item">
+                <span>Today:</span>
+                <span><%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %></span>
+            </div>
+            <div class="info-item">
+                <span>Time:</span>
+                <span id="live-clock">]</span>
+            </div>
+        </div>
+    </header>
 
-    <h1>링크 목록</h1>
-    
-    <ul>
-        <% // 웹 애플리케이션의 배포 실제 경로 획득
+    <main class="container">
+        <%
             String rootPath = application.getRealPath("/");
             File rootDir = new File(rootPath);
 
-            List<String> pageList = new ArrayList<String>();
-            findWebPages(rootDir, rootPath, pageList);
+            // TreeMap을 활용하여 폴더명을 알파벳/숫자 순서대로 정렬하여 그룹화
+            Map<String, List<String[]>> folderMap = new TreeMap<String, List<String[]>>();
+            findWebPages(rootDir, rootPath, folderMap);
 
-            if (pageList.isEmpty()) {
+            if (folderMap.isEmpty()) {
         %>
-            <li>생성된 웹페이지가 없습니다.</li>
+            <div class="card" style="grid-column: 1 / -1; align-items: center;">
+                <p class="empty-msg">생성된 웹페이지가 없습니다.</p>
+            </div>
         <%
             } else {
-                for (String pageUrl : pageList) {
-                    // 경로가 '/'로 시작하지 않는 경우 보정
-                    String href = pageUrl.startsWith("/") ? pageUrl : "/" + pageUrl;
+                for (Map.Entry<String, List<String[]>> entry : folderMap.entrySet()) {
+                    String folderName = entry.getKey();
+                    List<String[]> pages = entry.getValue();
         %>
-            <li> <a href="<%= request.getContextPath() + href %>"><%= pageUrl %></a> </li>
+            <section class="card">
+                <h2 class="card-title"> <%= folderName %> </h2>
+                <ul class="page-list">
+                    <%
+                        for (String[] pageInfo : pages) {
+                            String fileName = pageInfo[0];
+                            String pageUrl = pageInfo[1];
+                            String href = pageUrl.startsWith("/") ? pageUrl : "/" + pageUrl;
+                    %>
+                        <li class="page-item">
+                            <a href="<%= request.getContextPath() + href %>">
+                                <%= fileName %>
+                            </a>
+                        </li>
+                    <%
+                        }
+                    %>
+                </ul>
+            </section>
         <%
                 }
             }
         %>
-    </ul>
+    </main>
 
-</body>
 <script>
 function showTime() {
     const clockElement = document.getElementById("live-clock");
-    const now = new Date(); // 사용자 브라우저 기준 현재 날짜/시간 생성
-    clockElement.innerText = now.toLocaleString(); // 읽기 편한 포맷으로 변환
+    const now = new Date();
+    clockElement.innerText = now.toLocaleTimeString();
 }
-// 1초(1000밀리초)마다 showTime 함수를 반복 실행
 setInterval(showTime, 1000);
-// 페이지 로드 시 즉시 시간을 표시 (1초 지연 방지)
 showTime();
 </script>
-
+</body>
 </html>

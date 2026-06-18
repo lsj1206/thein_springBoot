@@ -20,6 +20,7 @@
 	Class.forName("org.postgresql.Driver");
 	conn = DriverManager.getConnection(url, dbUser, dbPass);
 
+  // PreparedStatement : ? 위치에 값을 바인딩
 	String sql = "INSERT INTO guestbook (name, message) VALUES (?, ?)";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, name);

@@ -19,14 +19,9 @@
                 }
             } else {
                 String fileName = file.getName();
-                // _가 포함된 파일 제외
-                if (fileName.contains("_")) {
-                    continue;
-                }
-
                 String lowerName = fileName.toLowerCase();
-                // JSP 및 HTML 파일만 추출
-                if (lowerName.endsWith(".jsp") || lowerName.endsWith(".html") || lowerName.endsWith(".htm")) {
+                // JSP 파일만 추출
+                if (lowerName.endsWith(".jsp")) {
                     // 시스템 절대경로를 웹 상대경로로 변환
                     String relativePath = file.getAbsolutePath().substring(rootPath.length());
                     relativePath = relativePath.replace(File.separatorChar, '/');

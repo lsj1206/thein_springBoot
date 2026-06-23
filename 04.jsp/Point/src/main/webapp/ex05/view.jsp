@@ -42,6 +42,7 @@
     <p><%=rs.getString("content")%></p>
     <hr>
     <a href="list.jsp">목록으로</a>
+    <a href="update.jsp?id=<%= id %>">수정</a>
     <a href="delete.jsp?id=<%= id %>" onclick="return confirm('정말 삭제할까요?')">삭제</a>
     <%}
   }

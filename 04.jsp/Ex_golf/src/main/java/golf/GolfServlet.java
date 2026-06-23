@@ -1,5 +1,6 @@
 package golf;
 
+import golf.dao.GolfDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import java.io.IOException;
 @WebServlet("/golf")
 public class GolfServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private final GolfDAO dao = new GolfDAO();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -24,12 +26,22 @@ public class GolfServlet extends HttpServlet {
 
 		switch (action) {
 			case "teacher":
+				try {
+					req.setAttribute("teacherList", dao.getTeacherList());
+				} catch (Exception e) {
+					req.setAttribute("errorMsg", e.getMessage());
+				}
 				path = "/views/teacher.jsp";
 				break;
 			case "insert":
 				path = "/views/insert.jsp";
 				break;
 			case "member":
+				try {
+					req.setAttribute("memberList", dao.getMemberList());
+				} catch (Exception e) {
+					req.setAttribute("errorMsg", e.getMessage());
+				}
 				path = "/views/member.jsp";
 				break;
 			case "result":

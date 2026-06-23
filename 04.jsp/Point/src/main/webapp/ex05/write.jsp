@@ -29,15 +29,17 @@
       pstmt.setString(2, content);
       pstmt.setString(3, author);
 
+      pstmt.executeUpdate();
+
       response.sendRedirect("list.jsp");
       return;
 
     } catch (Exception e) {
-            out.println("오류: " + e.getMessage());
-        } finally {
-            if (pstmt != null) try { pstmt.close(); } catch(Exception e) {}
-            if (conn  != null) try { conn.close();  } catch(Exception e) {}
-        }
+        out.println("오류: " + e.getMessage());
+    } finally {
+        if (pstmt != null) try { pstmt.close(); } catch(Exception e) {}
+        if (conn  != null) try { conn.close();  } catch(Exception e) {}
+    }
   }
 %>
 <!DOCTYPE html>

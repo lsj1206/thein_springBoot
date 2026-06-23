@@ -10,7 +10,7 @@
   if("POST".equals(method)) {
     String title = request.getParameter("title");
     String content = request.getParameter("content");
-    String author = request.getParameter("writer");
+    String author = request.getParameter("author");
 
     String url    = "jdbc:postgresql://localhost:5432/hrd";
     String dbUser = "postgres";
@@ -23,7 +23,7 @@
       Class.forName("org.postgresql.Driver");
       conn = DriverManager.getConnection(url,dbUser,dbPass);
 
-      String sql = "INSERT INTO board (title, content, writer) VALUES (?, ?, ?)";
+      String sql = "INSERT INTO board (title, content, author) VALUES (?, ?, ?)";
       pstmt = conn.prepareStatement(sql);
       pstmt.setString(1, title);
       pstmt.setString(2, content);

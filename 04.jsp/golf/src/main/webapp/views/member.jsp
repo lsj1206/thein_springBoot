@@ -38,20 +38,17 @@
                 </tr>
             <% } else {
                 for (MemberVO member : memberList) {
-                    // 수강월 포맷팅 (YYYYMM -> YYYY-MM)
                     String registMonth = member.getRegistMonth();
                     String registMonthFormatted = "-";
                     if (registMonth != null && registMonth.length() == 6) {
                         registMonthFormatted = registMonth.substring(0, 4) + "-" + registMonth.substring(4, 6);
                     }
 
-                    // 등급 표시
                     String grade = member.getGrade() != null ? member.getGrade() : "-";
-
-                    // 수강 정보 가져오기
                     String className = member.getClassName() != null ? member.getClassName() : "-";
                     String classArea = member.getClassArea() != null ? member.getClassArea() : "-";
 
+                    // 수강한 적이 있는 회원만 표시
                     String tuitionFormatted = "-";
                     if (member.getRegistMonth() != null) {
                         tuitionFormatted = df.format(member.getTuition());
@@ -63,6 +60,7 @@
                     <td><%= member.getcName() %></td>
                     <td><%= className %></td>
                     <td><%= classArea %></td>
+                    <!-- 수강료 금액 우측 정렬 및 여백 지정 -->
                     <td style="text-align: right; padding-right: 15px;"><%= tuitionFormatted %></td>
                     <td><%= grade %></td>
                 </tr>
@@ -73,7 +71,6 @@
         </tbody>
     </table>
 </section>
-
 <%@ include file="../layout/footer.jsp" %>
 </body>
 </html>

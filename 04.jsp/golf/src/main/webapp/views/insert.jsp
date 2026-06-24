@@ -20,9 +20,9 @@
         List<TeacherVO> teacherList = (List<TeacherVO>) request.getAttribute("teacherList");
     %>
 
+    <!-- 수강신청 등록 폼 -->
     <form name="frm" method="post" action="${pageContext.request.contextPath}/golf" onsubmit="return checkForm();">
         <input type="hidden" name="action" value="insert">
-
         <input type="hidden" name="regist_month" id="regist_month_hidden" value="">
         <input type="hidden" id="member_grade" value="">
         <input type="hidden" id="class_price_hidden" value="">
@@ -37,10 +37,12 @@
                     <div style="position: relative; display: inline-block; vertical-align: middle;">
                         <input type="text" id="regist_month_display" style="width: 340px;" placeholder="연도-월 선택">
                         <button type="button" class="btn-cal" onclick="showMonthCalendar();">📅</button>
+                        <!-- 달력 팝업 레이어 영역 -->
                         <div id="calendar_popup"></div>
                     </div>
                 </td>
             </tr>
+            <!-- 회원 선택 -->
             <tr>
                 <th>회원명</th>
                 <td>
@@ -55,12 +57,14 @@
                     </select>
                 </td>
             </tr>
+            <!-- 회원번호 : 비활성화 필드, 회원 선택 시 자동 주입 -->
             <tr>
                 <th>회원번호</th>
                 <td>
                     <input type="text" id="c_no_display" readonly tabindex="-1" placeholder="회원을 선택하면 자동 입력됩니다.">
                 </td>
             </tr>
+            <!-- 강의 선택 -->
             <tr>
                 <th>강의명</th>
                 <td>
@@ -68,30 +72,32 @@
                         <option value="">-- 강의 선택 --</option>
                         <% if (teacherList != null) {
                             for (TeacherVO t : teacherList) {
-                                String area = "제" + (t.getTeacherCode() / 100) + "연습장";
                         %>
                                 <option value="<%= t.getTeacherCode() %>"
                                         data-teacher="<%= t.getTeacherName() %>"
                                         data-price="<%= t.getClassPrice() %>"
-                                        data-area="<%= area %>">
+                                        data-area="<%= t.getClassArea() != null ? t.getClassArea() : "" %>">
                                     <%= t.getClassName() %>
                                 </option>
                         <% } } %>
                     </select>
                 </td>
             </tr>
+            <!-- 강사명 : 비활성화 필드, 강의 선택 시 자동 주입 -->
             <tr>
                 <th>강사명</th>
                 <td>
                     <input type="text" id="teacher_name_display" readonly tabindex="-1" placeholder="강의를 선택하면 자동 입력됩니다.">
                 </td>
             </tr>
+            <!-- 강의장소 : 비활성화 필드, 강의 선택 시 자동 주입 -->
             <tr>
                 <th>강의장소</th>
                 <td>
                     <input type="text" id="class_area_display" readonly tabindex="-1" placeholder="강의를 선택하면 자동 입력됩니다.">
                 </td>
             </tr>
+            <!-- 수강료 : 비활성화 필드, 강의 선택 시 자동 주입 -->
             <tr>
                 <th>수강료</th>
                 <td>
@@ -107,7 +113,6 @@
         </table>
     </form>
 </section>
-
 <%@ include file="../layout/footer.jsp" %>
 </body>
 </html>

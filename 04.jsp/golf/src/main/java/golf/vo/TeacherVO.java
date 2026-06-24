@@ -8,6 +8,7 @@ public class TeacherVO {
 	private String className;
 	private int classPrice;
 	private Date teacherRegistDate;
+	private String classArea;
 
 	public int getTeacherCode() {
 		return teacherCode;
@@ -38,5 +39,11 @@ public class TeacherVO {
 	}
 	public void setTeacherRegistDate(Date teacherRegistDate) {
 		this.teacherRegistDate = teacherRegistDate;
+	}
+	public String getClassArea() {
+		return classArea;
+	}
+	public void setClassArea(String classArea) {
+		this.classArea = classArea;
 	}
 }

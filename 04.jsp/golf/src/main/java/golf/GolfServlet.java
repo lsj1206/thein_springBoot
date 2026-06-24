@@ -45,6 +45,11 @@ public class GolfServlet extends HttpServlet {
 				path = "/views/member.jsp";
 				break;
 			case "result":
+				try {
+					req.setAttribute("salesList", dao.getSalesList());
+				} catch (Exception e) {
+					req.setAttribute("errorMsg", e.getMessage());
+				}
 				path = "/views/result.jsp";
 				break;
 			case "home":

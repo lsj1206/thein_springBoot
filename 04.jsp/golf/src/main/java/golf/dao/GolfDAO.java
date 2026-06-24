@@ -3,6 +3,7 @@ package golf.dao;
 import golf.DBconnection;
 import golf.vo.TeacherVO;
 import golf.vo.MemberVO;
+import golf.vo.SalesVO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,6 +48,30 @@ public class GolfDAO {
 				vo.setPhone(rs.getString("phone"));
 				vo.setAddress(rs.getString("address"));
 				vo.setGrade(rs.getString("grade"));
+				list.add(vo);
+			}
+		}
+		return list;
+	}
+
+	public List<SalesVO> getSalesList() throws Exception {
+		List<SalesVO> list = new ArrayList<>();
+		String sql = "SELECT t.teacher_code, t.teacher_name, t.class_name, COALESCE(SUM(c.tuition), 0) AS total_sales " +
+		             "FROM golf_teacher t " +
+		             "LEFT JOIN golf_class c ON t.teacher_code = c.teacher_code " +
+		             "GROUP BY t.teacher_code, t.teacher_name, t.class_name " +
+		             "ORDER BY t.teacher_code ASC";
+
+		try (Connection conn = DBconnection.getConnection();
+			 PreparedStatement pstmt = conn.prepareStatement(sql);
+			 ResultSet rs = pstmt.executeQuery()) {
+
+			while (rs.next()) {
+				SalesVO vo = new SalesVO();
+				vo.setTeacherCode(rs.getInt("teacher_code"));
+				vo.setTeacherName(rs.getString("teacher_name"));
+				vo.setClassName(rs.getString("class_name"));
+				vo.setTotalSales(rs.getInt("total_sales"));
 				list.add(vo);
 			}
 		}

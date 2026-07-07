@@ -1,0 +1,69 @@
+.day0630 h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.day0630 .example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.day0630 .example-panel {
+  min-width: 0;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #d7dce2;
+  border-radius: 8px;
+}
+
+.day0630 .example-panel-wide {
+  grid-column: 1 / -1;
+}
+
+.day0630 .example-panel h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.day0630 .tictactoe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+
+.day0630 .tictactoe .status {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.day0630 .tictactoe-board {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day0630 .tictactoe-board .board-row {
+  display: flex;
+  gap: 4px;
+}
+
+.day0630 .tictactoe-board .square {
+  width: 64px;
+  height: 64px;
+  font-size: 24px;
+}
+
+.day0630 .tictactoe-info ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.day0630 .tictactoe-info button {
+  padding: 4px 8px;
+  border: 1px solid #d7dce2;
+  background: #ffffff;
+}

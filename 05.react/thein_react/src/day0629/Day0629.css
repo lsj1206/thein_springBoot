@@ -1,0 +1,63 @@
+.day0629 h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.day0629 .example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.day0629 .example-panel {
+  min-width: 0;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #d7dce2;
+  border-radius: 8px;
+}
+
+.day0629 .example-panel h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.day0629 .avatar {
+  border-radius: 50%;
+}
+
+.day0629 .red {
+  color: #d93025;
+}
+
+.day0629 .blue {
+  color: #1a73e8;
+}
+
+.day0629 .green {
+  color: #188038;
+}
+
+.day0629 .myform {
+  display: grid;
+  gap: 8px;
+}
+
+.day0629 .myform input {
+  width: 100%;
+  padding: 6px 8px;
+}
+
+.day0629 .mylist {
+  padding-left: 20px;
+}
+
+.day0629 .mytable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.day0629 .mytable td {
+  padding: 6px 8px;
+  border: 1px solid #d7dce2;
+}

@@ -1,0 +1,7 @@
+export default function Footer() {
+  return (
+    <footer className="site-footer">
+      <span>Copyright© 2026 All rights reserved.</span>
+    </footer>
+  );
+}

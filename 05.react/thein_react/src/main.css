@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #202020;
+  background: #f7f8fa;
+  font-family: "Noto Sans", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d7dce2;
+  padding: 8px 16px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid #d7dce2;
+  border-bottom: 0;
+  color: #5f6368;
+}
+
+.day-list {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 8px 16px;
+}

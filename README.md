@@ -22,11 +22,12 @@
 
 ### React version
 
-- Node.js : v24.18.0
-- React : v19.2.7
-- Vite : v8.1.0
+- Node.js : 24.18.0
+- React : 19.2.7
+- Vite : 8.1.0
 
 ### SpringBoot version
 
-- SpringBoot : 5.2.0
+- STS : 5.2.0
+- SpringBoot : 3.5.16
 - jdk : 21
